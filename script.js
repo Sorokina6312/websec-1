@@ -8,11 +8,11 @@ function buttonClickHandler()
 
     var result;
 
-    if (!/^[0-9]+$/.test(value1)) {
+    if (!isNaN(value1) && String(value1).includes(',')) {
 
         result = "В левом окне ввода должно быть число!";
     }
-    else if (!/^[0-9]+$/.test(value2)) {
+    else if (!isNaN(value2) && String(value2).includes(',')) {
         
         result = "В правом окне ввода должно быть число!";
     }
