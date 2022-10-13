@@ -6,6 +6,8 @@ function buttonClickHandler()
     let value1 = document.getElementById("input1").value;
     let value2 = document.getElementById("input2").value;
 
+    var result;
+
     if (!/^[0-9]+$/.test(value1)) {
 
         result = "В левом окне ввода должно быть число!";
@@ -16,7 +18,7 @@ function buttonClickHandler()
     }
 
     else {
-    var result;
+
     switch (selectorElem.value){
         case 'plus':
             result = parseFloat(value1) + parseFloat(value2);
