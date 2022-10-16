@@ -1,3 +1,8 @@
+function isNumber(str) {
+    if (typeof str != "string") return false 
+    return !isNaN(str) && !isNaN(parseFloat(str))
+  }
+
 function buttonClickHandler()
 {
     let selectorElem = document.getElementById("select1");
@@ -8,13 +13,12 @@ function buttonClickHandler()
 
     var result;
 
-    if (!isNaN(value1) && String(value1).includes(',')) {
-
-        result = "В левом окне ввода должно быть число!";
+    if (!isNumber(value1)) {
+        result = "В левом окне ввода должно быть целое число или вещественное число с точкой!";
     }
-    else if (!isNaN(value2) && String(value2).includes(',')) {
+    else if (!isNumber(value2)) {
         
-        result = "В правом окне ввода должно быть число!";
+        result = "В правом окне ввода должно быть целое число или вещественное число с точкой!";
     }
 
     else {
@@ -30,7 +34,7 @@ function buttonClickHandler()
             result = parseFloat(value1) * parseFloat(value2);
             break;
         case 'division':
-            if (value2 == 0)
+            if (Math.abs(value2) < Number.EPSILON)
             {
                 result = "На ноль делить нельзя!";
             }
